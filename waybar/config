@@ -1,0 +1,83 @@
+{
+	"modules-left": ["clock", "hyprland/workspaces"],
+	"modules-center": ["custom/whatsong"],
+
+	"modules-right": ["tray", "network",
+	"pulseaudio", "battery"],
+
+
+	"network": {
+		"format-wifi": "{essid} ",
+		"format-ethernet": "{ifname} ",
+		"format-disconnected": "", 
+		"max-length": 50,
+		"on-click": "kitty -e 'nmtui'"
+	},
+
+	"tray": {
+		"icon-size": 15,
+		"spacing": 10
+	},
+
+	"clock": {
+		"interval": 1,
+		//"format": "󰥔 { :%H:%M  %d-%m-%y}",
+		"format": "󰥔  {:%I:%M %p}",
+		"tooltip-format": "{:%F at %T in %Z (UTC%Ez)}"
+		// "format": "{:%d-%m-%Y %H:%M:%S}", // %b %d %Y  --Date formatting
+		//"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		// "format-alt": "{:%Y-%m-%d %H:%M:%S  }"
+
+	},
+		"pulseaudio": {
+			"format": "{volume}% {icon} ",
+			"format-bluetooth": "{volume}% {icon} {format_source}",
+			"format-bluetooth-muted": " {icon} {format_source}",
+			"format-muted": "0% {icon} ",
+			"format-source": "{volume}% ",
+			"format-source-muted": "",
+			"format-icons": {
+				"headphone": "",
+				"hands-free": "",
+				"headset": "",
+				"phone": "",
+				"portable": "",
+				"car": "",
+				"default": ["", "", ""]
+			},
+		},
+		"battery": {
+			"states": {
+				"good": 95,
+				"warning": 30,
+				"critical": 15
+			},
+			"format": "{capacity}% {icon}",
+			"format-charging": "{capacity}% ",
+			"format-plugged": "{capacity}% ",
+			"format-alt": "{time} {icon}",
+			// "format-good": "", // An empty format will hide the module
+			// "format-full": "",
+			"format-icons": ["", "", "", "", ""]
+		},
+
+
+		"hyprland/workspaces": {
+			"format": "{icon}",
+			"on-click": "activate",
+			"format-icons": {
+				"active": "",
+				"urgent": "",
+				"default": ""
+			}
+		},
+
+		"custom/whatsong": { 
+			"interval": 1, 
+			"format": "{}", 
+			"exec": "~/.config/script/whatsong.sh", 
+			"on-click": "playerctl play-pause", 
+			"on-click-right": "playerctl next", 
+		},
+
+	}
