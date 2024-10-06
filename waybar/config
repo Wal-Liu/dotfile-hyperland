@@ -1,5 +1,5 @@
 {
-	"modules-left": ["clock", "hyprland/workspaces"],
+	"modules-left": ["clock#time", "hyprland/workspaces"],
 	"modules-center": ["custom/whatsong"],
 
 	"modules-right": ["tray", "network",
@@ -10,7 +10,7 @@
 		"format-wifi": "{essid} ",
 		"format-ethernet": "{ifname} ",
 		"format-disconnected": "", 
-		"max-length": 50,
+		"max-length": 20,		
 		"on-click": "kitty -e 'nmtui'"
 	},
 
@@ -19,16 +19,23 @@
 		"spacing": 10
 	},
 
-	"clock": {
+	
+	"clock#time": {
 		"interval": 1,
 		//"format": "󰥔 { :%H:%M  %d-%m-%y}",
 		"format": "󰥔  {:%I:%M %p}",
 		"tooltip-format": "{:%F at %T in %Z (UTC%Ez)}"
-		// "format": "{:%d-%m-%Y %H:%M:%S}", // %b %d %Y  --Date formatting
-		//"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-		// "format-alt": "{:%Y-%m-%d %H:%M:%S  }"
 
 	},
+
+
+	"clock#date": {
+		"interval": 10,
+		"format": "  {:%e %b %Y}", // Icon: calendar-alt
+		"tooltip-format": "{:%e %B %Y}"
+	},
+
+
 		"pulseaudio": {
 			"format": "{volume}% {icon} ",
 			"format-bluetooth": "{volume}% {icon} {format_source}",
@@ -53,11 +60,11 @@
 				"critical": 15
 			},
 			"format": "{capacity}% {icon}",
-			"format-charging": "{capacity}% ",
+			"format-charging": "{capacity}% 󰂅",
 			"format-plugged": "{capacity}% ",
 			"format-alt": "{time} {icon}",
 			// "format-good": "", // An empty format will hide the module
-			// "format-full": "",
+			// "format-ful
 			"format-icons": ["", "", "", "", ""]
 		},
 
@@ -65,10 +72,13 @@
 		"hyprland/workspaces": {
 			"format": "{icon}",
 			"on-click": "activate",
+			"all-put": true,
 			"format-icons": {
-				"active": "",
-				"urgent": "",
-				"default": ""
+				"1": "󰈹",
+				"2": "",
+				"3": "",
+				"4": "",
+				"5": "",
 			}
 		},
 
